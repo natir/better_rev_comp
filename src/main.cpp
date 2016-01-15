@@ -6,18 +6,19 @@
 
 std::string switch_transform(std::string seq)
 {
-  std::transform(seq.rbegin(), seq.rend(), seq.begin(), [](char c) {
-      switch(c) {
-      case 'A': return 'T';
-      case 'C': return 'G';
-      case 'G': return 'C';
-      case 'T': return 'A';
-      default: return 'N';
-      }
-      return 'N';
-    });
+    std::string r(seq);
+    std::transform(seq.rbegin(), seq.rend(), r.begin(), [](char c) {
+	    switch(c) {
+	    case 'A': return 'T';
+	    case 'C': return 'G';
+	    case 'G': return 'C';
+	    case 'T': return 'A';
+	    default: return 'N';
+	    }
+	    return 'N';
+	});
   
-  return seq;
+    return r;
 }
 
 class tab_revert
