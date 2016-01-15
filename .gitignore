@@ -40,4 +40,8 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 
+### Personal ###
+
 better_rev_comp
+*.png
+*.csv
