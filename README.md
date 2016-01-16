@@ -13,7 +13,7 @@ cd ..
 ## Run
 
 ```bash
-./better_rev_comp 1000 110000 AACCTTGGAACCTTGGAACCTTGGAACCTTGGC > time.csv
+./better_rev_comp 1000 3400000 AACCTTGGAACCTTGGAACCTTGGAACCTTGGC > time.csv
 ```
 
 1. parameter is the number of replication
