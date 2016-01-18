@@ -25,8 +25,10 @@ class tab_revert
 {
 private :
     char nuc2nuc['T' + 1] = {'N'};
-    
-public:
+
+    static tab_revert* m_instance;
+
+private :
     
     tab_revert()
 	{
@@ -35,8 +37,18 @@ public:
 	    nuc2nuc['C'] = 'G';
 	    nuc2nuc['G'] = 'C';
 	}
+    
+public:
 
-    std::string operator()(std::string seq)
+    static tab_revert* get_instance()
+	{
+	    if(!m_instance)
+		m_instance = new tab_revert();
+
+	    return m_instance;
+	}
+
+    std::string run(std::string seq)
 	{
 	    auto first = seq.begin(), last = seq.end();
 
@@ -57,11 +69,11 @@ public:
 
 	}
 };
+tab_revert *tab_revert::m_instance = 0;
 
 int main(int argc, char** argv)
 {
     /* Init table */
-    tab_revert worker;
     
     std::cout<<"switch_transform;tabular_revert"<<std::endl;
 
@@ -86,7 +98,7 @@ int main(int argc, char** argv)
 	begin = std::chrono::high_resolution_clock::now();
 	for(auto i = 0; i != repeat; i++)
 	{
-	    worker(seq);
+	    tab_revert::get_instance()->run(seq);
 	}
 	elapsed = std::chrono::high_resolution_clock::now() - begin;
 
