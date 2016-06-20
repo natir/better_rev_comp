@@ -119,6 +119,17 @@ int main(int argc, char** argv)
     long long repeat = std::stoll(std::string(argv[2]));
     std::string seq(argv[3]);
 
+    /* if replicate is 0 run test */
+    if (replicate == 0)
+    {
+	std::cout<<"Base                       : "<<seq<<std::endl;
+	std::cout<<"switch_transform           : "<<switch_transform(seq)<<std::endl;
+	std::cout<<"switch_transform const ref : "<<switch_transform_const_ref(seq)<<std::endl;
+	std::cout<<"tabular_revert             : "<<tab_revert::get_instance()->run(seq)<<std::endl;
+	std::cout<<"tabular_revert ref         : "<<tab_revert::get_instance()->run_ref(seq)<<std::endl;
+	return 0;
+    }
+
     /* Init table */
     std::cout<<"switch_transform;switch_transform_const_ref;tabular_revert;tabular_revert_ref"<<std::endl;
 
