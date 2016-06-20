@@ -44,4 +44,5 @@ install_manifest.txt
 
 better_rev_comp
 *.png
+*.svg
 *.csv

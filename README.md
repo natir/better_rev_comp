@@ -23,7 +23,7 @@ cd ..
 ## Generate graph
 
 ```bash
-./generate_graph.R time.csv out.png
+./generate_graph.R time.csv out.svg
 ```
 
 1. parameter is csv file content the result
